@@ -6,7 +6,7 @@ jobs:
   myrror-scan:
     runs-on: ubuntu-latest
     container:
-      image: goteks/myrror-cli:latest
+      image: goteks/myrror-cli:1
     steps:
       - name: Set up environment variables
         run: |
