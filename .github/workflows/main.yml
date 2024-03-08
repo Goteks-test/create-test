@@ -16,6 +16,8 @@ jobs:
           echo "MYRROR_REPOSITORY=$(basename $GITHUB_REPOSITORY)" >> $GITHUB_ENV
           echo "MYRROR_BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
           echo "MYRROR_COMMIT=$GITHUB_SHA" >> $GITHUB_ENV
+          echo "MYRROR_CLIENT_ID=Y7o2vSMZIQeDUzn17Avru9b1cuGKryyI" >> $GITHUB_ENV
+          echo "MYRROR_SECRET=XLsY7ExCo8a56c8t1wrpIUKdssvu3xhAe1-pySnuwYc0pnukU08-8ulAH_1OFbM6" >> $GITHUB_ENV
 
       - name: Run Myrror Scan
         run: node /usr/src/app/dist/main status -r $MYRROR_REPOSITORY -b $MYRROR_BRANCH -c $MYRROR_COMMIT
