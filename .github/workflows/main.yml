@@ -6,7 +6,7 @@ jobs:
   myrror-scan:
     runs-on: ubuntu-latest
     container:
-      image: goteks/myrror-cli:latest
+      image: myrrorsecurity/myrror-cli:latest
       env:
         MYRROR_REPOSITORY: $(basename $GITHUB_REPOSITORY)
         MYRROR_BRANCH: ${GITHUB_REF#refs/heads/}
