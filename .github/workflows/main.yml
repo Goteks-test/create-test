@@ -1,0 +1,21 @@
+name: Myrror Scan Test
+
+on: [push, pull_request]
+
+jobs:
+  myrror-scan:
+    runs-on: ubuntu-latest
+    container:
+      image: myrrorsecurity/myrror-cli:latest
+      env:
+        MYRROR_REPOSITORY: $(basename $GITHUB_REPOSITORY)
+        MYRROR_BRANCH: ${GITHUB_REF#refs/heads/}
+        MYRROR_COMMIT: $GITHUB_SHA
+        MYRROR_CLIENT_ID: Y7o2vSMZIQeDUzn17Avru9b1cuGKryyI
+        MYRROR_SECRET: XLsY7ExCo8a56c8t1wrpIUKdssvu3xhAe1-pySnuwYc0pnukU08-8ulAH_1OFbM6
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run Myrror Scan
+        run: node /usr/src/app/dist/main status -r $MYRROR_REPOSITORY -b $MYRROR_BRANCH -c $MYRROR_COMMIT
