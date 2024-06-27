@@ -1,2 +1,2 @@
 # Test
-test protection 10
+test protection 1
